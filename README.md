@@ -59,6 +59,7 @@ Refer to the respective installation guides to get familiar with installation pr
 ## Configuration
 Detail the configuration steps specific to getting Klipper and OpenPNP working together.
 
+### Klipper Configuration
 - Getting Klipper to talk to OpenPNP was surprisingly simple.
 - OpenPNP can talk to a controller either using Serial (USB) or TCP
 - Klipper provides a "virtual Serial port" that we can use, but we will use it over TCP
@@ -66,6 +67,22 @@ Detail the configuration steps specific to getting Klipper and OpenPNP working t
  ` sudo socat TCP-LISTEN:5000,reuseaddr,fork OPEN:/dev/pts/0,append`
 - If you get any errors, try using `sudo apt install socat` before you run the command
 - keep the terminal window open once you hit enter. This will keep the socket alive between Klipper and OpenPNP
+- The config files along with all the macros are uploaded to this repo.
+- The "HOME_ALL" macro has SET_KINEMATIC_POSITION A=0 and SET_KINEMATIC_POSITION B=0 because A & B axes are not "homed" axis. This resets the position at homing for those two axes. Also make sure to set "Force_Move" in the printer.cfg to enable it
+
+### OpenPNP Configuration
+- Setup is fairtly similar to other firmwares such as Marlin
+- Klipper does not support all the G and M codes of Marlin, but there are equivalent commands that can be used.
+- I have macros defined in Klipper for LED, Pumps and Sensor actuator turn on and off. In OpenPNP, you just have to use that macro instad of any G code based command. Example below
+`  [gcode_macro BOTTOM_LED_OFF]
+gcode:
+    SET_LED LED=bot_led RED=0 GREEN=0 BLUE=0 `
+- So in the Actuator Regex, You would simply use BOTTOM_LED_OFF to define the turn off command
+- Most of the OpenPNP solutions presented worked fine. Such as the G92 for Global Position Capture etc.
+- For the Move command regex, OpenPNP suggested regex which includes the  M204 command before the G1 command did not work. Easy fix was to remove everything before "G1" and save it. That will work like a charm
+- Use the most simple motion planning system "Toolhead path" for now.
+- Since we are not able to send Klipper M204 commands through OpenPNP, we are limited to this simple motion planning. If and when we figure out a way to sned the M204 command, higher order motion planning systems can be activated.
+- #TODO post the machine.xml from OpenPNP
 
 ## Usage
 Explain how to use the system once it's configured.
@@ -74,10 +91,8 @@ Explain how to use the system once it's configured.
 Invite others to contribute and explain how they can do so.
 
 ## License
-Specify the license under which your project is released.
+Use at your own risk license :)
 
-## Contact
-Provide a way for users to reach you for further inquiries or support.
 
 ## Gallery
 Embed images or videos showing the setup in action.
