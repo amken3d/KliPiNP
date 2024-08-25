@@ -50,7 +50,7 @@ Refer to the respective installation guides to get familiar with installation pr
 
 ### Klipper specific items
 - If you are building a 1 head P&P, you may be able to use the official Klipper repo. Howver, I was building a 2 head P&P. So I used a fork of Klipper that has support for XYZABC axis configuratoion.
-- The fork i used is here : https://github.com/naikymen/klipper-for-cnc
+- The fork i used is here : https://github.com/naikymen/klipper-for-cnc use (use the #pipetting branch)
 - See the repo for the installation insdtructions : https://github.com/naikymen/klipper-for-cnc?tab=readme-ov-file#installation
 - Official Klipper repo is here : https://github.com/Klipper3d/klipper
 - There are several videos and sites which explain klipper installation, such as this writeup https://klipper.discourse.group/t/installing-klipper-with-kiauh/10734
