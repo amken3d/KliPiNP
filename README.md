@@ -1,4 +1,4 @@
-# KliPiNP: Klipper Pi PNP Configuration
+# KliPiNP: Klipper Pi OpenPNP Configuration
 
 ## Overview
 
