@@ -17,6 +17,9 @@ The rationale behind KliPiNP hinges on several key technical insights:
 - **Mechanical Smoothing**: The project uses a Lumen style frame, a low cost flexible Pick and Place platform. Klipper's input shaper comes into play here, effectively dampening any frame-induced vibrations or noise, thus ensuring high precision without the need for heavy-duty frame enhancements.
 
 - **Macro-based Simplification**: The use of Klipper macros significantly streamlines the kinematic setup. For example, integrating a 'HOME-ALL' macro means homing becomes a one-command operation in the system. This simplicity extends to OpenPNP, where either system's macro capabilities can be used to tailor the workflow to specific needs.
+- 
+# High level architecture
+![image](https://github.com/user-attachments/assets/a08ab512-ab0d-4388-9b1c-2b702b49746b)
 
 
 # Build Notes
