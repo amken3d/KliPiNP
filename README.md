@@ -66,7 +66,7 @@ Detail the configuration steps specific to getting Klipper and OpenPNP working t
 - OpenPNP can talk to a controller either using Serial (USB) or TCP
 - Klipper provides a "virtual Serial port" that we can use, but we will use it over TCP
 - Make sure you are able to run this command in a Linux bash shell
- ` sudo socat TCP-LISTEN:5000,reuseaddr,fork OPEN:/dev/pts/0,append`
+ ` sudo socat TCP-LISTEN:23,reuseaddr,fork OPEN:/dev/pts/0,append`
 - If you get any errors, try using `sudo apt install socat` before you run the command
 - keep the terminal window open once you hit enter. This will keep the socket alive between Klipper and OpenPNP
 - The config files along with all the macros are uploaded to this repo.
